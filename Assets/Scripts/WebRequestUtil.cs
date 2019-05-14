@@ -19,6 +19,9 @@ public static class WebRequestUtil
 		using(var req = new UnityWebRequest(url, "GET"))
 		{
 			req.downloadHandler = new DownloadHandlerTexture();
+			req.disposeDownloadHandlerOnDispose = true;
+			req.disposeUploadHandlerOnDispose = true;
+
 			req.SendWebRequest();
 			
 			while(!req.isDone)
